@@ -24,7 +24,7 @@
         <div class="mb-2">
           <a class="parameter-item" target="frame" href="#" role="button" aria-expanded="false"
             aria-controls="param1Subthemes">
-            <i class="bi bi-newspaper"></i> Avaliações
+            <i class="bi bi-newspaper"></i> Documentos
           </a>
         </div>
         <div class="mb-2">

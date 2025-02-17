@@ -28,8 +28,8 @@
           </a>
         </div>
         <div class="mb-2">
-          <a class="parameter-item" href="#" target="frame" role="button" aria-expanded="false"
-            aria-controls="param2Subthemes">
+          <a class="parameter-item" href="src/View/Usuarios/users.php" target="frame" role="button"
+            aria-expanded="false" aria-controls="param2Subthemes">
             <i class="bi bi-people-fill"></i> Usuários
           </a>
         </div>
@@ -41,7 +41,7 @@
         </div>
       </nav>
       <div class="mt-auto">
-        <a href="#" class="text-center d-block">Logout</a>
+        <a href="src/View/Login/login.php" class="text-center d-block"><i class="bi bi-power"></i> Logout</a>
       </div>
     </div>
     <!-- Main Content -->
@@ -51,7 +51,7 @@
           <div class="col-md-3">
             <div class="card">
               <div class="card-body">
-                Card 1 Content
+                1 QRCODE ATIVO
               </div>
             </div>
           </div>
@@ -69,13 +69,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                Card 4 Content
-              </div>
-            </div>
-          </div>
+
         </div>
         <div class="row">
           <div class="col-12">

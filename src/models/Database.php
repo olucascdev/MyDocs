@@ -1,4 +1,5 @@
 <?php
+
 class Database
 {
   private static $pdo;
@@ -6,13 +7,19 @@ class Database
   public static function getConnection()
   {
     if (!self::$pdo) {
+      $host = "localhost";
+      $dbname = "mydocs";
+      $user = "root";
+      $pass = "";
+
       try {
-        self::$pdo = new PDO("mysql:host=localhost;dbname=mydocs", "root", "");
+        self::$pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       } catch (PDOException $e) {
         die("Erro na conexão: " . $e->getMessage());
       }
     }
+
     return self::$pdo;
   }
 }

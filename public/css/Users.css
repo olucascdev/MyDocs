@@ -1,0 +1,189 @@
+/* Reset default styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row {
+    margin-top: -20px; /* Ajuste para reduzir o espaço */
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f8f9fa; /* Light background for contrast */
+    color: #212529; /* Default text color */
+}
+
+/* Container styling */
+.container2 {
+    max-width: 100%; /* Altera para 100% para caber no iframe */
+    height: 547px; /* Define a altura para evitar rolagem */
+    padding: 10px; /* Ajustado para aproveitar o espaço */
+    overflow-y: auto; /* Permite rolagem vertical, se necessário */
+}
+
+/* Button styles */
+.btn {
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 5px; /* Reduzido para ajustar ao espaço */
+    font-size: 0.9rem; /* Tamanho da fonte ajustado */
+}
+
+/* Primary button styling */
+.btn-primary {
+    background-color: rgb(16, 29, 37);
+    border-color: rgb(16, 29, 37);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0d1a1f; /* Darker shade for hover effect */
+}
+
+/* Success button styling */
+.btn-success {
+    background-color: #28a745; /* Bootstrap's default success color */
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker shade for hover effect */
+}
+
+/* Warning button styling */
+.btn-warning {
+    background-color: #ffc107; /* Bootstrap's default warning color */
+    border-color: #ffc107;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800; /* Darker shade for hover effect */
+}
+
+/* Info button styling */
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+/* Danger button styling */
+.btn-danger {
+    background-color: #dc3545; /* Bootstrap's default danger color */
+    border-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker shade for hover effect */
+}
+
+/* Search box styling */
+.box-search {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    margin: -40px 0 -25px; /* Ajustado para ocupar menos espaço */
+}
+
+.box-search input[type="search"] {
+    border-radius: 5px;
+    padding: 8px; /* Ajustado para melhor ajuste */
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    width: 200px; /* Largura fixa para evitar excessos */
+}
+
+/* Table styling */
+.table {
+    margin: 10px auto; /* Ajustado para diminuir o espaço */
+    width: 1170px; /* Garante que a tabela ocupe toda a largura disponível */
+    max-width: 93%; /* Altera para 100% para evitar rolagem */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px; /* Ajustado para melhor ajuste */
+    border: none;
+    border-right: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: rgb(16, 29, 37);
+    color: white;
+}
+
+.table th:last-child, .table td:last-child {
+    border-right: none;
+}
+
+.table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Modal header styling */
+.modal-header {
+    background-color: rgb(16, 29, 37);
+    color: white;
+}
+
+/* Pagination styles */
+.pagination {
+    margin-top: -20px; /* Remove margens na paginação */
+}
+
+.pagination .page-item .page-link {
+    color: rgb(16, 29, 37);
+    font-size: 0.9rem; /* Ajustado para melhor visualização */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgb(16, 29, 37);
+    color: white;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d; /* Bootstrap's default disabled color */
+}
+
+/* Font size adjustments */
+h2 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.8rem; /* Ajustado para caber melhor */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: rgb(16, 29, 37);
+    margin-bottom: 10px; /* Ajuste para espaçamento */
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;
+        margin-bottom: 5px; /* Ajuste o espaço entre botões em telas menores */
+    }
+
+    .table {
+        font-size: 12px; /* Reduzido para melhor ajuste em telas pequenas */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Ajuste para telas menores */
+    }
+}

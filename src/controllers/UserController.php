@@ -1,11 +1,14 @@
 <?php
 
-class UserController
+class UserController extends RenderView
 {
-  public function index() {}
-
-  public function show($id)
+  public function index()
   {
-    echo "User" . $id[0];
+    $users = new UserModel();
+    $userData = $users->fetch();
+
+    $this->loadView('TelaUsers', [
+      'users' => $userData
+    ]);
   }
 }

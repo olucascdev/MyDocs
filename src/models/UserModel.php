@@ -1,21 +1,11 @@
 <?php
 
-class UserModel extends Database
+class UserModel
 {
-  private $pdo;
-
-  public function __construct()
-  {
-    $this->pdo = $this->getConnection();
-  }
-
   public function fetch()
   {
-    $stm = $this->pdo->query("SELECT * FROM usuarios");
-    if ($stm->rowCount() > 0) {
-      return $stm->fetchAll(PDO::FETCH_ASSOC);
-    } else {
-      return [];
-    }
+    $db = Database::getConnection();
+    $stmt = $db->query('SELECT * FROM usuarios');
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 }

@@ -8,7 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="styles/Users.css">
+
+  <link rel="stylesheet" href="/projetos/MyDocs/public/css/Users.css">
 </head>
 
 <body>
@@ -32,7 +33,6 @@
       <button class="btn btn-primary" onclick="searchData()"><i class="bi bi-search"></i></button>
     </div>
 
-
     <!-- Tabela para exibir Users cadastrados -->
     <table class="table table-light table-bordered table-striped table-hover m-5" border="1" cellspacing=0
       cellpadding=10>
@@ -47,112 +47,63 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($rows as $row) : ?>
+        <?php if (isset($users) && !empty($users)) { ?>
+        <?php foreach ($users as $item) {  ?>
         <tr>
-
-          <td><?php echo $row['id']; ?></td> <!-- Mudar o nome para name caso der erro-->
-          <td><?php echo $row['nome']; ?></td>
+          <td><?php echo $item['id']; ?></td>
+          <td><?php echo $item['nome']; ?></td>
           <td>
             <?php
-              switch ($row['acesso']) {
-                case '0':
-                  echo 'Visitante';
-                  break;
-                case '1':
-                  echo 'Usuário';
-                  break;
-                case '2':
-                  echo 'Gestor';
-                  break;
-                case '3':
-                  echo 'Administrador';
-                  break;
-                case '4':
-                  echo 'Master';
-                  break;
-              }
-
-              ?>
+                switch ($item['acesso']) {
+                  case '0':
+                    echo 'Visitante';
+                    break;
+                  case '1':
+                    echo 'Usuário';
+                    break;
+                  case '2':
+                    echo 'Gestor';
+                    break;
+                  case '3':
+                    echo 'Administrador';
+                    break;
+                  case '4':
+                    echo 'Master';
+                    break;
+                }
+                ?>
           </td>
-          <td><?php echo $row['email']; ?></td>
+          <td><?php echo $item['email']; ?></td>
           <td class="text-center">
             <?php
-              switch ($row['ativo']) {
-                case '0':
-                  echo 'Desativado';
-                  break;
-
-                default:
-                  echo 'Ativo';
-                  break;
-              }
-
-              ?>
+                switch ($item['ativo']) {
+                  case '0':
+                    echo 'Desativado';
+                    break;
+                  default:
+                    echo 'Ativo';
+                    break;
+                }
+                ?>
           </td>
-          <!-- <td><img src="foto/<?php echo $row['foto']; ?>"  width="64px" title="<?php echo $row['foto']; ?>"> </td>     -->
-
           <td class="text-center d-flex justify-content-center">
-            <!-- Botão de Editar -->
-            <a class="btn btn-warning btn-sm me-2" href="CadastroUsuarioEdit.php?
-                                    &id=<?php echo $row['id']; ?>
-                                    &nome=<?php echo $row['nome']; ?>
-                                    &acesso=<?php echo $row['acesso']; ?>
-                                    &email=<?php echo $row['email']; ?>
-                                    &status=<?php echo $row['ativo']; ?>
-                                    
-                                    ">
-              <i class="bi bi-pencil w-25"></i>
-            </a>
-
-
-            <a class="btn btn-danger btn-sm me-2" href="Controller/excluir.php?id=<?php echo $row['id']; ?>"><i
+            <a class="btn btn-danger btn-sm me-2" href="Controller/excluir.php?id=<?php echo $item['id']; ?>"><i
                 class="bi bi-trash-fill w-25"></i>
             </a>
           </td>
-          <!-- <td class="text-center">
-                                <i class="bi bi-camera-fill"></i>
-                            </a>
-                            </td> -->
         </tr>
-        <?php endforeach; ?>
-
-
+        <?php } ?>
+        <?php } else { ?>
+        <tr>
+          <td colspan="6" class="text-center">Nenhum usuário encontrado.</td>
+        </tr>
+        <?php } ?>
       </tbody>
-
-
     </table>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item <?php if ($pagina_atual == 1) echo 'disabled'; ?>">
-          <a class="page-link"
-            href="<?php echo $_SERVER['PHP_SELF']; ?>?pagina=<?php echo $pagina_atual - 1; ?>">Anterior</a>
-        </li>
-        <?php for ($i = 1; $i <= $total_paginas; $i++) : ?>
-        <li class="page-item <?php if ($pagina_atual == $i) echo 'active'; ?>">
-          <a class="page-link" href="<?php echo $_SERVER['PHP_SELF']; ?>?pagina=<?php echo $i; ?>"><?php echo $i; ?></a>
-        </li>
-        <?php endfor; ?>
-        <li class="page-item <?php if ($pagina_atual == $total_paginas) echo 'disabled'; ?>">
-          <a class="page-link"
-            href="<?php echo $_SERVER['PHP_SELF']; ?>?pagina=<?php echo $pagina_atual + 1; ?>">Próximo</a>
-        </li>
-      </ul>
-    </nav>
-
-
-
 
   </div>
 
-
-
-
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <!--script para pesquisa-->
   <script>
   var search = document.getElementById('pesquisar');

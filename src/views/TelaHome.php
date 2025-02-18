@@ -9,6 +9,7 @@
   <!-- Bootstrap Icons (for icons in sidebar) -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  <!-- O css do arquivo pode dar algum problema ao subir no servidor, verificar dpois-->
   <?php $base_url = "/projetos/MyDocs/public"; ?>
   <link rel="stylesheet" href="<?= $base_url ?>/css/Style.css">
   <title><?php echo $title; ?></title>
@@ -31,8 +32,8 @@
           </a>
         </div>
         <div class="mb-2">
-          <a class="parameter-item" href="#" target="frame" role="button" aria-expanded="false"
-            aria-controls="param2Subthemes">
+          <a class="parameter-item" href="http://localhost/projetos/MyDocs/users" target="frame" role="button"
+            aria-expanded="false" aria-controls="param2Subthemes">
             <i class="bi bi-people-fill"></i> Usuários
           </a>
         </div>

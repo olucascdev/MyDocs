@@ -3,7 +3,10 @@
 $routes = [
 
   '/' => 'HomeController@index',
-  '/users/{id}' => 'UserController@show'
+  '/users' => 'UserController@index',
+  '/unidades' => 'UnidadeController@index'
+
+
 
 
 

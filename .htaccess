@@ -1,8 +1,11 @@
 RewriteEngine On  
 
+# Se o arquivo ou pasta existir, não faz o redirecionamento
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME} !-f 
 
-RewriteRule ^(.*)$ index.php?url=$1 [QSA]
-RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|woff|woff2|ttf|svg)$ [NC]
+# Permite acesso direto a arquivos estáticos (CSS, JS, imagens, fontes)
+RewriteCond %{REQUEST_URI} !^/public/ [NC]
 
+# Redireciona tudo para index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

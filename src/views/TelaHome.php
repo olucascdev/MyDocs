@@ -9,9 +9,12 @@
   <!-- Bootstrap Icons (for icons in sidebar) -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../../../public/css/Style.css">
+  <?php $base_url = "/projetos/MyDocs/public"; ?>
+  <link rel="stylesheet" href="<?= $base_url ?>/css/Style.css">
   <title><?php echo $title; ?></title>
 </head>
+
+
 
 <body>
   <!-- Sidebar -->

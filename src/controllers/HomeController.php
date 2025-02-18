@@ -7,7 +7,7 @@ class HomeController extends RenderView
     $users = new UserModel();
 
 
-    $this->loadView('Home', [
+    $this->loadView('TelaHome', [
       'title' => 'MyDocs',
       'users' => $users->fetch()
     ]);

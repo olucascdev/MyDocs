@@ -10,7 +10,7 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../../../public/css/Style.css">
-  <title>MyDocs</title>
+  <title><?php echo $title; ?></title>
 </head>
 
 <body>

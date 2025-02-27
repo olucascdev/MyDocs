@@ -24,6 +24,8 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC")->fetchAll(
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="pasta.php?id=<?= $pasta['id'] ?>" class="text-decoration-none"><?= $pasta['nome'] ?></a>
                     <a href="deletar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Excluir pasta?')">Excluir</a>
+                    <!-- Adicionando o botão para ver o QR Code -->
+                    <a href="visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
                 </li>
             <?php endforeach; ?>
         </ul>

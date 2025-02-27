@@ -30,7 +30,7 @@ $documentos = $documentos->fetchAll();
         <!-- Formulário para Upload de Documento -->
         <div class="form-container text-center mb-4">
         <div class="text-center mb-3">
-            <a href="index.php" class="btn btn-secondary">Voltar</a>
+            <a href="gerenciador.php" class="btn btn-secondary">Voltar</a>
         </div>
             <form action="actions/upload.php" method="POST" enctype="multipart/form-data" class="d-flex justify-content-center w-75">
                 <input type="hidden" name="pasta_id" value="<?= $pasta_id ?>">
@@ -45,7 +45,7 @@ $documentos = $documentos->fetchAll();
                 <thead>
                     <tr>
                         <th>Nome do Documento</th>
-                        <th style="width: 28%">Ações</th>
+                        <th style="width: 30%">Ações</th>
                     </tr>
                 </thead>
                 <tbody>

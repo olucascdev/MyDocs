@@ -60,7 +60,7 @@ if (!file_exists($tempFile)) {
         </div>
 
         <div class="mt-4">
-            <a href="../index.php" class="btn btn-secondary">Voltar</a>
+            <a href="../gerenciador.php" class="btn btn-secondary">Voltar</a>
             <a href="../uploads/qrcode_<?= $pasta_id ?>.png" download="qrcode_<?= $pasta['nome'] ?>.png" class="btn btn-success btn-lg">Baixar QR Code</a>
         </div>
     </div>

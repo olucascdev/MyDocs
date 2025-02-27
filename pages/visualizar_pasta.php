@@ -38,7 +38,7 @@ $documentos = $documentos->fetchAll();
         <!-- Exibindo os documentos da pasta como links -->
         <div class="d-flex flex-wrap justify-content-center mt-4">
             <?php foreach ($documentos as $documento): ?>
-                <a href="uploads/<?= $documento['nome_arquivo'] ?>" target="_blank" class="btn btn-info btn-lg m-2">
+                <a href="../uploads/<?= $documento['nome_arquivo'] ?>" target="_blank" class="btn btn-info btn-lg m-2">
                     <?= $documento['nome_arquivo'] ?>
                 </a>
                

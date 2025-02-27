@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ->execute([$imagem_qrcode, $pasta_id]);
 
     // Redirecionar para a página de visualização da pasta
-    header("Location: ../index.php");
+    header("Location: ../gerenciador.php");
     exit();
 }
 ?>

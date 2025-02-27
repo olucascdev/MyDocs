@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$novo_nome, $pasta_id]);
 
     echo "Pasta atualizada com sucesso!";
-    header("Location: ../index.php"); // Redireciona para a página principal
+    header("Location: ../gerenciador.php"); // Redireciona para a página principal
     exit;
 }
 ?>

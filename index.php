@@ -22,10 +22,23 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC")->fetchAll(
         <ul class="list-group mt-3">
             <?php foreach ($pastas as $pasta): ?>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <!-- Nome da pasta clicável -->
                     <a href="pasta.php?id=<?= $pasta['id'] ?>" class="text-decoration-none"><?= $pasta['nome'] ?></a>
-                    <a href="deletar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Excluir pasta?')">Excluir</a>
-                    <!-- Adicionando o botão para ver o QR Code -->
-                    <a href="visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
+
+                    <!-- Botões de ação -->
+                    <div>
+                        <!-- Novo botão de Acessar -->
+                        <a href="pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-success btn-sm">Acessar</a>
+
+                        <!-- Botão de Editar -->
+                        <a href="editar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+
+                        <!-- Botão de Excluir -->
+                        <a href="deletar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Excluir pasta?')">Excluir</a>
+
+                        <!-- Botão de Ver QR Code -->
+                        <a href="visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
+                    </div>
                 </li>
             <?php endforeach; ?>
         </ul>

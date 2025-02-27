@@ -28,11 +28,24 @@ $documentos = $documentos->fetchAll();
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
 
+        <!-- Lista de documentos -->
         <ul class="list-group mt-3">
-            <?php foreach ($documentos as $doc): ?>
+            <?php foreach ($documentos as $documento): ?>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="<?= $doc['caminho'] ?>" download class="text-decoration-none"><?= $doc['nome_arquivo'] ?></a>
-                    <a href="deletar_arquivo.php?id=<?= $doc['id'] ?>&pasta=<?= $pasta_id ?>" class="btn btn-danger btn-sm" onclick="return confirm('Excluir arquivo?')">Excluir</a>
+                    <span><?= $documento['nome_arquivo'] ?></span>
+
+                    <!-- Botões de Ação -->
+                    <div>
+                        
+                        <!-- Baixar Documento -->
+                        <a href="uploads/<?= $documento['nome_arquivo'] ?>" download class="btn btn-success btn-sm ms-2">Baixar</a>
+
+                        <!-- Acessar Documento -->
+                        <a href="uploads/<?= $documento['nome_arquivo'] ?>" target="_blank" class="btn btn-primary btn-sm ms-2">Acessar</a>
+
+                        <!-- Deletar Documento -->
+                        <a href="deletar_arquivo.php?id=<?= $documento['id'] ?>&pasta=<?= $pasta_id ?>" class="btn btn-danger btn-sm ms-2" onclick="return confirm('Tem certeza que deseja excluir este arquivo?')">Excluir</a>
+                    </div>
                 </li>
             <?php endforeach; ?>
         </ul>

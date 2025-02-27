@@ -1,0 +1,33 @@
+
+
+
+Crud
+-Criar pasta{
+
+Nome
+Acessos -> nulo ou usuarios
+
+}
+Assim que criar a pasta, obviamente vai para tabela, cada pasta criada vai gerar um QRCODE para criar esse code primeiramente
+vai criar o diretorio da pasta
+o qr code vai ser feito com base no diretorio da pasta
+
+tabela{
+
+-checkbox
+-nome
+-acessar{
+ - Acesso aos documentos{
+ 	- CRUD basico
+  	Todos os uploads de arquivos vão ficar dentro de uma tabela tmb 
+ }
+ 
+}
+-Qrcode{
+  -Baixar
+  -URL
+}
+
+}
+
+

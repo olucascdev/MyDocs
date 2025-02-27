@@ -1,0 +1,87 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8; /* Azul claro */
+    color: #333;
+    padding: 20px;
+}
+
+/* Container principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+h1 {
+    color: #0044cc; /* Azul escuro */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px 0;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff; /* Azul médio */
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Azul escuro */
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Input de arquivo */
+input[type="file"] {
+    border: 2px solid #007bff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Layout Responsivo */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

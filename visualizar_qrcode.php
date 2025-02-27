@@ -13,8 +13,7 @@ if (!$pasta) {
 }
 
 // Gerar a URL do QR Code
-$url = "http://localhost/mydocs/pasta.php?id=" . $pasta_id;
-
+$url = "http://" . $_SERVER['HTTP_HOST'] . "/mydocs/visualizar_pasta.php?id=" . $pasta_id;
 // Gerar o QR Code com a biblioteca chillerlan/php-qrcode
 require 'vendor/autoload.php';
 use chillerlan\QRCode\QRCode;
@@ -23,7 +22,7 @@ use chillerlan\QRCode\QROptions;
 $options = new QROptions([
     'version' => 5,
     'eccLevel' => QRCode::ECC_L,
-    'outputType' => QRCode::OUTPUT_IMAGE_PNG, // Corrigido para OUTPUT_IMAGE_PNG
+    'outputType' => QRCode::OUTPUT_IMAGE_PNG,
     'imageBase64' => false,
 ]);
 
@@ -48,18 +47,23 @@ if (!file_exists($tempFile)) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>QR Code - <?= $pasta['nome'] ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="visualizar_qrcode.css"> 
+    
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5 text-center">
         <h2 class="text-primary">QR Code para a pasta: <?= $pasta['nome'] ?></h2>
-        <img src="uploads/qrcode_<?= $pasta_id ?>.png" alt="QR Code" class="img-fluid mt-4">
-        <br><br>
-        <a href="index.php" class="btn btn-secondary">Voltar</a>
-        <a href="uploads/qrcode_<?= $pasta_id ?>.png" download="qrcode_<?= $pasta['nome'] ?>.png" class="btn btn-success mt-3">Baixar QR Code</a>
+
+        <div class="qr-code-container">
+            <img src="uploads/qrcode_<?= $pasta_id ?>.png" alt="QR Code">
+        </div>
+
+        <div class="mt-4">
+            <a href="index.php" class="btn btn-secondary">Voltar</a>
+            <a href="uploads/qrcode_<?= $pasta_id ?>.png" download="qrcode_<?= $pasta['nome'] ?>.png" class="btn btn-success btn-lg">Baixar QR Code</a>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-

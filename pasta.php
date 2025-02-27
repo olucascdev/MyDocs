@@ -1,5 +1,6 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=mydocs", "root", "");
+include_once "config/Database.php";
+
 $pasta_id = $_GET["id"];
 $pasta = $pdo->prepare("SELECT * FROM pastas WHERE id = ?");
 $pasta->execute([$pasta_id]);
@@ -16,7 +17,7 @@ $documentos = $documentos->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $pasta['nome'] ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
@@ -31,7 +32,7 @@ $documentos = $documentos->fetchAll();
         <div class="text-center mb-3">
             <a href="index.php" class="btn btn-secondary">Voltar</a>
         </div>
-            <form action="upload.php" method="POST" enctype="multipart/form-data" class="d-flex justify-content-center w-75">
+            <form action="actions/upload.php" method="POST" enctype="multipart/form-data" class="d-flex justify-content-center w-75">
                 <input type="hidden" name="pasta_id" value="<?= $pasta_id ?>">
                 <input type="file" name="arquivo" class="form-control me-2" required>
                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -61,7 +62,7 @@ $documentos = $documentos->fetchAll();
                                 <a href="uploads/<?= $documento['nome_arquivo'] ?>" target="_blank" class="btn btn-primary btn-sm ms-2">Acessar</a>
 
                                 <!-- Deletar Documento -->
-                                <a href="deletar_arquivo.php?id=<?= $documento['id'] ?>&pasta=<?= $pasta_id ?>" class="btn btn-danger btn-sm ms-2" onclick="return confirm('Tem certeza que deseja excluir este arquivo?')">Excluir</a>
+                                <a href="actions/deletar_arquivo.php?id=<?= $documento['id'] ?>&pasta=<?= $pasta_id ?>" class="btn btn-danger btn-sm ms-2" onclick="return confirm('Tem certeza que deseja excluir este arquivo?')">Excluir</a>
                             </div>
                         </td>
                     </tr>

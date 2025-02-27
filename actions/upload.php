@@ -1,11 +1,12 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=mydocs", "root", "");
+include_once "../config/Database.php";
+
 $pasta_id = $_POST["pasta_id"];
 $arquivo = $_FILES["arquivo"];
 
 if ($arquivo["error"] == UPLOAD_ERR_OK) {
     $nomeArquivo = basename($arquivo["name"]);
-    $caminho = "uploads/" . $nomeArquivo;
+    $caminho = "../uploads/" . $nomeArquivo;
 
     // Criar a pasta uploads caso não exista
     if (!is_dir("uploads")) {
@@ -28,5 +29,5 @@ if ($arquivo["error"] == UPLOAD_ERR_OK) {
     echo "Erro no upload: " . $arquivo["error"];
 }
 
-header("Location: pasta.php?id=$pasta_id");
+header("Location: ../pasta.php?id=$pasta_id");
 exit();

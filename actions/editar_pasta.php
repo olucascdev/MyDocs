@@ -1,5 +1,6 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=mydocs", "root", "");
+include_once "../config/Database.php";
+
 $pasta_id = $_GET['id'];
 
 // Buscar a pasta para garantir que existe
@@ -21,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$novo_nome, $pasta_id]);
 
     echo "Pasta atualizada com sucesso!";
-    header("Location: index.php"); // Redireciona para a página principal
+    header("Location: ../index.php"); // Redireciona para a página principal
     exit;
 }
 ?>
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Editar Pasta</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body class="bg-light">
@@ -39,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2 class="text-primary text-center">Editar Pasta</h2>
 
         <br>
-        <a href="index.php" class="btn btn-secondary">Voltar</a>
+        <a href="../index.php" class="btn btn-secondary">Voltar</a>
 
         <!-- Formulário de Edição -->
         <form action="editar_pasta.php?id=<?= $pasta_id ?>" method="POST" class="mt-4">

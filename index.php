@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=mydocs", "root", "");
+include_once "config/Database.php";
 $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC")->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,8 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC")->fetchAll(
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gerenciador de Arquivos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body class="bg-light">
     <div class="container mt-5">
@@ -18,7 +19,7 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC")->fetchAll(
 
         <!-- Formulário para criar pasta centralizado -->
         <div class="form-container">
-            <form action="criar_pasta.php" method="POST" class="d-flex w-75">
+            <form action="actions/criar_pasta.php" method="POST" class="d-flex w-75">
                 <input type="text" name="nome" class="form-control me-2" placeholder="Nome da pasta" required>
                 <button type="submit" class="btn btn-primary">Criar Pasta</button>
             </form>
@@ -44,13 +45,13 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC")->fetchAll(
                             <a href="pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-success btn-sm me-2 ">Acessar</a>
 
                             <!-- Botão de Editar -->
-                            <a href="editar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-warning btn-sm me-2 ">Editar</a>
+                            <a href="actions/editar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-warning btn-sm me-2 ">Editar</a>
 
                             <!-- Botão de Excluir -->
-                            <a href="deletar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-danger btn-sm me-2" onclick="return confirm('Excluir pasta?')">Excluir</a>
+                            <a href="actions/deletar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-danger btn-sm me-2" onclick="return confirm('Excluir pasta?')">Excluir</a>
 
                             <!-- Botão de Ver QR Code -->
-                            <a href="visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
+                            <a href="pages/visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

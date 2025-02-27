@@ -1,5 +1,6 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=mydocs", "root", "");
+include_once "../config/Database.php";
+
 $id = $_GET["id"];
 $pasta_id = $_GET["pasta"];
 
@@ -12,4 +13,4 @@ if ($arquivo && file_exists($arquivo["caminho"])) {
 }
 
 $pdo->prepare("DELETE FROM documentos WHERE id = ?")->execute([$id]);
-header("Location: pasta.php?id=$pasta_id");
+header("Location: ../pasta.php?id=$pasta_id");

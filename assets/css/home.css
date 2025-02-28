@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+html, body {
+  height: 100%;       /* Garante que a página ocupe 100% da altura */
+  overflow: hidden;   /* Desativa o scroll */
+  background-color: rgb(236, 245, 255);
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+img{
+    width: 90px;
+    height: 90px;
+}
+
+.sidebar {
+    background-color: rgb(16, 29, 37);
+    color: white;
+    min-height: 100vh;
+    height: 100vh;
+    position: fixed;
+    width: 200px;
+  }
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+  }
+  .sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .sidebar .parameter-item {
+    cursor: pointer;
+  }
+  .parameter-subthemes {
+    padding-left: 20px;
+  }
+  .main-content {
+    margin-left: 200px;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .card{
+    background-color: rgb(16, 29, 37);
+    height: 150px;
+    color: aliceblue;
+  }
+  .main-content{
+   
+    
+  }
+  
+
+  iframe, .card{
+    border-radius: 15px;
+    box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.164);
+  }

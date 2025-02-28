@@ -5,7 +5,15 @@
    if(!isset($_SESSION['id'])) {
      header('Location: pages/TelaLogin.php');
 }
-    
+
+// Consultar a quantidade de pastas
+$sql = "SELECT COUNT(*) AS total_pastas FROM pastas";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Obtendo o total de pastas
+$total_pastas = $result['total_pastas'];
 
 ?>
 
@@ -54,8 +62,9 @@
         <div class="row mb-4">
           <div class="col-md-3">
             <div class="card">
-              <div class="card-body">
-                Card 1 Content
+              <div class="card-body aling-items-center">
+              <i class="bi bi-folder-fill" style="font-size: 1.5rem;"> Minhas Pastas</i> <!-- Ícone maior -->
+                <p class="card-text" style="font-size: 2rem;"><?php echo $total_pastas; ?></p>
               </div>
             </div>
           </div>

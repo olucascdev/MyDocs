@@ -1,0 +1,103 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Light background for contrast */
+    color: #212529; /* Default text color */
+}
+
+/* Container styling */
+.container2 {
+    max-width: 1536px; /* Width to fit within the iframe */
+    height: 546px; /* Fixed height to avoid scrolling */
+    padding: 30px; /* Reduced padding for more space */
+    overflow-y: auto; /* Allows vertical scrolling if necessary */
+}
+
+/* Button styles */
+.btn {
+    border-radius: 4px; /* Slightly smaller border radius */
+    font-weight: bold;
+    margin-right: 5px; /* Adjusted for space */
+    font-size: 0.8rem; /* Smaller font size */
+}
+
+/* Button styling */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker shade for hover effect */
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800; /* Darker shade for hover effect */
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker shade for hover effect */
+}
+
+/* Form label styles */
+.form-label {
+    font-weight: bold;
+    color: rgb(16, 29, 37); /* Primary color */
+    font-size: 0.9rem; /* Smaller font size for labels */
+}
+
+/* Input and textarea styling */
+.form-control {
+    border-radius: 4px; /* Slightly smaller border radius */
+    border: 1px solid #ccc;
+    padding: 8px; /* Reduced padding for inputs */
+    font-size: 0.9rem; /* Smaller font size for input fields */
+}
+
+.form-control:focus {
+    border-color: rgb(16, 29, 37);
+    box-shadow: 0 0 5px rgba(16, 29, 37, 0.5);
+}
+
+/* Font size adjustments */
+h1 {
+    font-size: 1.8rem; /* Reduced title size */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: rgb(16, 29, 37);
+    margin-bottom: 15px; /* Adjusted spacing */
+    text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;
+        margin-bottom: 5px; /* Space adjustment between buttons on smaller screens */
+        font-size: 0.9rem; /* Smaller font size for buttons on small screens */
+    }
+
+    .form-control {
+        font-size: 0.8rem; /* Further reduced font size for small screens */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Title size in smaller screens */
+    }
+}

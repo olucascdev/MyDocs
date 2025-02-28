@@ -35,25 +35,14 @@
           </a>
         </div>
         <div class="mb-2">
-          <a class="parameter-item" href="Users.php" target="frame" role="button" aria-expanded="false" aria-controls="param2Subthemes">
+          <a class="parameter-item" href="pages/TelaUsers.php" target="frame" role="button" aria-expanded="false" aria-controls="param2Subthemes">
             <i class="bi bi-people-fill"></i> Usuários
           </a>
         </div>
         <div class="mb-2">
-          <a class="parameter-item"  href="avaliacao_unidades.php" target="frame" role="button" aria-expanded="false" aria-controls="param3Subthemes">
+          <a class="parameter-item"  href="pages/TelaUnidades.php" target="frame" role="button" aria-expanded="false" aria-controls="param3Subthemes">
             <i class="bi bi-building"></i> Unidades
           </a>
-        </div>
-        <div class="mb-2">
-          <a class="parameter-item" href="#param4Subthemes" role="button" aria-expanded="false" aria-controls="param4Subthemes">
-            <i class="bi bi-gear-fill"></i> Parametro 4
-          </a>
-        </div>
-        <div class="mb-2">
-          <a class="parameter-item"  href="#param5Subthemes" role="button" aria-expanded="false" aria-controls="param5Subthemes">
-            <i class="bi bi-gear-fill"></i> Parametro 5
-          </a>
-        </div>
       </nav>
       <div class="mt-auto">
         <a href="controllers/LogoutController.php" class="text-center d-block">Logout</a>

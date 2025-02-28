@@ -9,6 +9,7 @@ $pasta = $pasta->fetch();
 $documentos = $pdo->prepare("SELECT * FROM documentos WHERE pasta_id = ?");
 $documentos->execute([$pasta_id]);
 $documentos = $documentos->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -45,7 +46,7 @@ $documentos = $documentos->fetchAll();
                 <thead>
                     <tr>
                         <th>Nome do Documento</th>
-                        <th style="width: 30%">Ações</th>
+                        <th style="width: 40%">Ações</th>
                     </tr>
                 </thead>
                 <tbody>

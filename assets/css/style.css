@@ -7,10 +7,6 @@
     box-sizing: border-box;
 }
 
-.row {
-    margin-top: -20px; /* Ajuste para reduzir o espaço */
-}
-
 body {
     font-family: "Inter", sans-serif;
     background-color: #f8f9fa; /* Light background for contrast */
@@ -19,18 +15,22 @@ body {
 
 /* Container styling */
 .container2 {
-    max-width: 100%; /* Altera para 100% para caber no iframe */
-    height: 547px; /* Define a altura para evitar rolagem */
-    padding: 10px; /* Ajustado para aproveitar o espaço */
-    overflow-y: auto; /* Permite rolagem vertical, se necessário */
+    max-width: 100%; /* Full width for iframe */
+    height: 100%; /* Adjusts to fit within iframe height */
+    padding: 10px;
+    overflow-y: auto; /* Allows vertical scroll if necessary */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Button styles */
 .btn {
     border-radius: 5px;
     font-weight: bold;
-    margin-right: 5px; /* Reduzido para ajustar ao espaço */
-    font-size: 0.9rem; /* Tamanho da fonte ajustado */
+    margin-right: 5px; /* Adjust spacing */
+    font-size: 1rem; /* Slightly larger font */
+    padding: 8px 12px; /* Adjust padding for better clickability */
 }
 
 /* Primary button styling */
@@ -41,7 +41,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #0d1a1f; /* Darker shade for hover effect */
+    background-color: #0d1a1f; /* Darker shade on hover */
 }
 
 /* Success button styling */
@@ -52,63 +52,14 @@ body {
 }
 
 .btn-success:hover {
-    background-color: #218838; /* Darker shade for hover effect */
-}
-
-/* Warning button styling */
-.btn-warning {
-    background-color: #ffc107; /* Bootstrap's default warning color */
-    border-color: #ffc107;
-    color: white;
-}
-
-.btn-warning:hover {
-    background-color: #e0a800; /* Darker shade for hover effect */
-}
-
-/* Info button styling */
-.btn-info {
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-    color: white;
-}
-
-.btn-info:hover {
-    background-color: #138496;
-}
-
-/* Danger button styling */
-.btn-danger {
-    background-color: #dc3545; /* Bootstrap's default danger color */
-    border-color: #dc3545;
-    color: white;
-}
-
-.btn-danger:hover {
-    background-color: #c82333; /* Darker shade for hover effect */
-}
-
-/* Search box styling */
-.box-search {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;
-    margin: -40px 0 -25px; /* Ajustado para ocupar menos espaço */
-}
-
-.box-search input[type="search"] {
-    border-radius: 5px;
-    padding: 8px; /* Ajustado para melhor ajuste */
-    border: 1px solid #ccc;
-    margin-right: 5px;
-    width: 200px; /* Largura fixa para evitar excessos */
+    background-color: #218838; /* Darker shade on hover */
 }
 
 /* Table styling */
 .table {
-    margin: 10px auto; /* Ajustado para diminuir o espaço */
-    width: 1170px; /* Garante que a tabela ocupe toda a largura disponível */
-    max-width: 93%; /* Altera para 100% para evitar rolagem */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -117,9 +68,9 @@ body {
 }
 
 .table th, .table td {
-    padding: 8px; /* Ajustado para melhor ajuste */
+    padding: 10px; /* Adjusted for better readability */
     border: none;
-    border-right: 2px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
 .table th {
@@ -127,28 +78,18 @@ body {
     color: white;
 }
 
-.table th:last-child, .table td:last-child {
-    border-right: none;
-}
-
 .table tr:hover {
     background-color: #e9ecef;
 }
 
-/* Modal header styling */
-.modal-header {
-    background-color: rgb(16, 29, 37);
-    color: white;
-}
-
-/* Pagination styles */
+/* Pagination styling */
 .pagination {
-    margin-top: -20px; /* Remove margens na paginação */
+    margin-top: 20px; /* Adjust pagination spacing */
 }
 
 .pagination .page-item .page-link {
     color: rgb(16, 29, 37);
-    font-size: 0.9rem; /* Ajustado para melhor visualização */
+    font-size: 1rem;
 }
 
 .pagination .page-item.active .page-link {
@@ -156,18 +97,14 @@ body {
     color: white;
 }
 
-.pagination .page-item.disabled .page-link {
-    color: #6c757d; /* Bootstrap's default disabled color */
-}
-
 /* Font size adjustments */
 h2 {
     font-family: "Inter", sans-serif;
-    font-size: 1.8rem; /* Ajustado para caber melhor */
+    font-size: 1.8rem; /* Slightly larger */
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     font-weight: bold;
     color: rgb(16, 29, 37);
-    margin-bottom: 10px; /* Ajuste para espaçamento */
+    margin-bottom: 20px; /* More breathing space */
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -176,55 +113,56 @@ h2 {
 @media (max-width: 768px) {
     .btn {
         width: 100%;
-        margin-bottom: 5px; /* Ajuste o espaço entre botões em telas menores */
+        margin-bottom: 10px; /* Better spacing for buttons */
+        font-size: 1rem; /* Adjust font size for readability */
     }
 
     .table {
-        font-size: 12px; /* Reduzido para melhor ajuste em telas pequenas */
+        font-size: 12px; /* Adjusted for small screens */
     }
 
     h2 {
-        font-size: 1.5rem; /* Ajuste para telas menores */
+        font-size: 1.6rem; /* Slightly smaller for smaller screens */
     }
 }
 
+/* Form container for better alignment */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjusted top margin */
+}
 
-        /* Centraliza o formulário de criação de pasta */
-        .form-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
-        .form-container form {
-            display: flex;
-            justify-content: center;
-            width: 60%;
-        }
+.form-container form {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
 
-        /* Centraliza a tabela */
-        .table-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .table-container table {
-            width: 80%;
-        }
+/* Table container for center alignment */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 
-        /* Estilo para deixar os botões e o campo de texto menores */
-        .form-control {
-            max-width: 300px;
-        }
-        .btn {
-            font-size: 14px;
-        }
+.table-container table {
+    width: 90%;
+}
 
-        h2 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+/* Adjust form control and button sizes */
+.form-control {
+    max-width: 280px; /* A little smaller for the iframe */
+}
 
-        
+h2 {
+    font-size: 2rem; /* Larger text for better readability */
+    margin-bottom: 30px; /* More spacing before the table */
+}
+
+/* Adjustments for the iframe-specific display */
+.container2 {
+    max-height: 100%; /* Ensures content fits the iframe height */
+}

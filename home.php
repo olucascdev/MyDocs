@@ -62,30 +62,9 @@ $total_pastas = $result['total_pastas'];
         <div class="row mb-4">
           <div class="col-md-3">
             <div class="card">
-              <div class="card-body aling-items-center">
+              <div class="card-body">
               <i class="bi bi-folder-fill" style="font-size: 1.5rem;"> Minhas Pastas</i> <!-- Ícone maior -->
                 <p class="card-text" style="font-size: 2rem;"><?php echo $total_pastas; ?></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                Card 2 Content
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                Card 3 Content
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                Card 4 Content
               </div>
             </div>
           </div>

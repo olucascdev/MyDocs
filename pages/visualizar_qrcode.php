@@ -14,7 +14,7 @@ if (!$pasta) {
 }
 
 // Gerar a URL do QR Code
-$url = "http://" . $_SERVER['HTTP_HOST'] . "/mydocs/pages/visualizar_pasta.php?id=" . $pasta_id;
+$url = "http://" . $_SERVER['HTTP_HOST'] . "/MyDocs/pages/visualizar_pasta.php?id=" . $pasta_id;
 // Gerar o QR Code com a biblioteca chillerlan/php-qrcode
 require '../vendor/autoload.php';
 use chillerlan\QRCode\QRCode;

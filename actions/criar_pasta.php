@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pasta_id = $pdo->lastInsertId(); // ID da nova pasta inserida
 
     // Gerar a URL do QR Code para a visualização da pasta
-    $url = "http://" . $_SERVER['HTTP_HOST'] . "/mydocs/pages/visualizar_pasta.php?id=" . $pasta_id;
+    $url = "http://" . $_SERVER['HTTP_HOST'] . "/MyDocs/pages/visualizar_pasta.php?id=" . $pasta_id;
 
 
     // Definir as opções do QR Code (tamanho, erro de correção, etc.)

@@ -65,7 +65,7 @@
         </div>
             <!-- Seção de Pesquisa -->
             <div class="box-search w-auto">
-                    <a href="../controllers/usuarios/CadastroUsuarioController.php"><button class="btn btn-success"><i class="bi bi-person-plus-fill"></i> Novo Usuário</button></a>
+                    <a href="TelaCadastroUsuarios.php"><button class="btn btn-success"><i class="bi bi-person-plus-fill"></i> Novo Usuário</button></a>
                     <button type="button" class="btn btn-info" onclick="atualizarPagina()">
                         <i class="bi bi-arrow-clockwise"></i> Atualizar
                     </button>   
@@ -133,16 +133,13 @@
 
                             <td class="text-center d-flex justify-content-center">
                                     <!-- Botão de Editar -->
-                                    <a class="btn btn-warning btn-sm me-2" href="../controllers/usuarios/EditarUsuarioController.php?id=<?php echo $row['id']; ?>&nome=<?php echo urlencode($row['nome']);
-                                     ?>&acesso=<?php echo $row['acesso']; ?>&email=<?php echo urlencode($row['email']); ?>&status=<?php echo $row['ativo']; ?>">
-    
+<a class="btn btn-warning btn-sm me-2" href="TelaEditarUsuarios.php?id=<?php echo $row['id']; ?>&nome=<?php echo urlencode($row['nome']); ?>&acesso=<?php echo $row['acesso']; ?>&email=<?php echo urlencode($row['email']); ?>&status=<?php echo $row['ativo']; ?>&unidadePrincipal=<?php echo $row['unidadePrincipal']; ?>&unidadeAssistente=<?php echo $row['unidadeAssistente']; ?>">
+    <i class="bi bi-pencil w-25"></i>
+</a>
 
-
-                                    <i class="bi bi-pencil w-25"></i>
-                                    </a>
                                 
                             
-                                <a class="btn btn-danger btn-sm me-2"  href="../controllers/usuarios/ExcluirUsuarioController.php?id=<?php echo $row['id']; ?>"><i class="bi bi-trash-fill w-25"></i> 
+                                <a class="btn btn-danger btn-sm me-2"  href="../controllers/usuarios/ExcluirUsuariosController.php?id=<?php echo $row['id']; ?>"><i class="bi bi-trash-fill w-25"></i> 
                             </a>
                             </td>
                            <!-- <td class="text-center">

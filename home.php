@@ -43,18 +43,6 @@
                     </a>
                 </div>
                 
-                <div class="mb-3">
-                    <a class="parameter-item" href="pages/TelaUsers.php" target="frame">
-                        <i class="bi bi-people-fill"></i> Usuários
-                    </a>
-                </div>
-                
-                <div class="mb-3">
-                    <a class="parameter-item" href="pages/TelaUnidades.php" target="frame">
-                        <i class="bi bi-building"></i> Unidades
-                    </a>
-                </div>
-            </nav>
             
             <div class="mt-auto">
                 <a href="controllers/LogoutController.php">

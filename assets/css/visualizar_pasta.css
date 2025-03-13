@@ -1,0 +1,133 @@
+/* Variáveis de cor */
+:root {
+    --primary-color: #1a73e8;
+    --primary-dark: #0d47a1;
+    --primary-light: #e8f0fe;
+    --text-color: #ffffff;
+    --button-bg: rgba(255, 255, 255, 0.15);
+    --button-hover: rgba(255, 255, 255, 0.25);
+}
+
+/* Estilos base - Mobile First */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Cabeçalho da pasta */
+.pasta-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.folder-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    display: block;
+}
+
+.pasta-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0;
+    word-break: break-word;
+    color: var(--text-color);
+}
+
+/* Lista de documentos */
+.documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+/* Estado vazio */
+.empty-state {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--button-bg);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Botões de documento */
+.document-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.document-button:hover, 
+.document-button:focus {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.document-button i {
+    font-size: 1.2rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.document-button span {
+    font-size: 1rem;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Adaptações para telas muito pequenas */
+@media (max-width: 320px) {
+    .document-button {
+        padding: 12px;
+    }
+    
+    .document-button i {
+        font-size: 1rem;
+        margin-right: 8px;
+    }
+    
+    .document-button span {
+        font-size: 0.9rem;
+    }
+}
+
+/* Adaptações para tablets e acima (apenas por precaução) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+    
+    .pasta-header {
+        margin-bottom: 30px;
+    }
+    
+    .folder-icon {
+        font-size: 3rem;
+    }
+    
+    .pasta-title {
+        font-size: 1.8rem;
+    }
+}

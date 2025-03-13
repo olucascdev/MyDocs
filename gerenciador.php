@@ -53,9 +53,10 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC LIMIT $inici
                         <td><?php echo date("d/m/Y", strtotime($pasta['criado_em'])); ?></td>
                         <td class="text-center d-flex justify-content-center">
                             <a href="pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-success btn-sm me-2">Acessar</a>
+                            <a href="pages/visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
                             <a href="actions/editar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-warning btn-sm me-2">Editar</a>
                             <a href="actions/deletar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-danger btn-sm me-2" onclick="return confirm('Excluir pasta?')">Excluir</a>
-                            <a href="pages/visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
+                            
                         </td>
                     </tr>
                     <?php endforeach; ?>

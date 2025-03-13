@@ -67,7 +67,10 @@ $total_pastas = $result['total_pastas'];
                 <p class="card-text" style="font-size: 2rem;"><?php echo $total_pastas; ?></p>
               </div>
             </div>
-          </div>
+        </div>
+        
+
+          
         </div>
         <div class="row">
           <div class="col-12">

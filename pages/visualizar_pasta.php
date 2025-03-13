@@ -29,25 +29,32 @@ $documentos = $documentos->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $pasta['nome'] ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/visualizar_pasta.css">
 </head>
-<body class="bg-light">
-    <div class="container mt-5 text-center">
-        <h2 class="text-primary"><?= $pasta['nome'] ?></h2>
-
-        <!-- Exibindo os documentos da pasta como links -->
-        <div class="d-flex flex-wrap justify-content-center mt-4">
-            <?php foreach ($documentos as $documento): ?>
-                <a href="../uploads/<?= $documento['nome_arquivo'] ?>" target="_blank" class="btn btn-info btn-lg m-2">
-                    <?= $documento['nome_arquivo'] ?> 
-                </a>
-               
-            <?php endforeach; ?>
+<body>
+    <div class="container py-3">
+        <div class="pasta-header">
+            <i class="fas fa-folder-open folder-icon"></i>
+            <h2 class="pasta-title"><?= $pasta['nome'] ?></h2>
         </div>
-       
         
+        <div class="documents-list">
+            <?php if (empty($documentos)): ?>
+                <div class="empty-state">
+                    <p>Nenhum documento encontrado nesta pasta.</p>
+                </div>
+            <?php else: ?>
+                <?php foreach ($documentos as $documento): ?>
+                    <a href="../uploads/<?= $documento['nome_arquivo'] ?>" target="_blank" class="document-button">
+                        <i class="fas fa-file-alt"></i>
+                        <span><?= $documento['nome_arquivo'] ?></span>
+                    </a>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
     </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

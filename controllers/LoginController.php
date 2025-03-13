@@ -29,7 +29,7 @@ if(isset($_POST['entrar']) && !empty($_POST['user']) && !empty($_POST['senha']))
             // Caso não exista
             unset($_SESSION['user']);
             unset($_SESSION['senha']);
-            header('Location: ../controllers/TelaLogin.php');
+            header('Location: ../pages/TelaLogin.php');
             exit(); // Importante para interromper a execução
         } else {
             // Caso exista

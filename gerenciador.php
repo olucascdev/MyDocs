@@ -23,7 +23,7 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC LIMIT $inici
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gerenciador de Arquivos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/gerenciador.css">
 </head>
 <body class="bg-light">
     <div class="container mt-5">

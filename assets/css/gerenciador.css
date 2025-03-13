@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #1a73e8;
+    --primary-dark: #0d47a1;
+    --primary-light: #e8f0fe;
+    --text-color: #ffffff;
+    --text-dark: #202124;
+    --sidebar-bg: #0d47a1;
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --card-bg: #1a73e8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-color: #e0e0e0;
+  }
+  
+  body {
+    background-color: var(--primary-light);
+    color: var(--text-dark);
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  
+  h2 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+  }
+  
+  .form-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    
+
+  }
+  
+  .form-control {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    box-shadow: 1px 3px 5px 2px rgba(0, 0, 0, 0.048);
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-dark);
+    color: var(--text-color);
+    box-shadow: 1px 3px 5px 2px rgba(0, 0, 0, 0.048);
+
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .table-container {
+    margin-top: 20px;
+  }
+  
+  .table {
+    background-color: var(--input-bg);
+    color: var(--text-dark);
+    border-color: var(--border-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 1px 3px 10px 3px rgba(0, 0, 0, 0.164);
+
+  }
+  
+  .table thead th {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    
+
+  }
+  
+  .table tbody tr:hover {
+    background-color: var(--primary-light);
+  }
+  
+  .pagination .page-link {
+    color: var(--primary-color);
+    box-shadow: 1px 3px 5px 2px rgba(0, 0, 0, 0.048);
+
+  }
+  
+  .pagination .page-link:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+  }
+  
+  .pagination .active .page-link {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+  }
+  

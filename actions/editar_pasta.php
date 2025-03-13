@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2 class="text-primary text-center">Editar Pasta</h2>
 
         <br>
-        <a href="../index.php" class="btn btn-secondary">Voltar</a>
+        <a href="../gerenciador.php" class="btn btn-secondary">Voltar</a>
 
         <!-- Formulário de Edição -->
         <form action="editar_pasta.php?id=<?= $pasta_id ?>" method="POST" class="mt-4">

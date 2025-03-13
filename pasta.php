@@ -33,29 +33,26 @@ $documentos = $documentos->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $pasta['nome'] ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pasta.css">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
         <h2 class="text-primary text-center"><?= $pasta['nome'] ?></h2>
 
         <div class="form-container text-center mb-4">
-        <div class="text-center mb-3">
             <a href="gerenciador.php" class="btn btn-secondary">Voltar</a>
-        </div>
             <form action="actions/upload.php" method="POST" enctype="multipart/form-data" class="d-flex justify-content-center w-75">
                 <input type="hidden" name="pasta_id" value="<?= $pasta_id ?>">
                 <input type="file" name="arquivo" class="form-control me-2" required>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
-
         <div class="table-container">
             <table class="table table-light table-bordered table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Nome do Documento</th>
-                        <th style="width: 40%">Ações</th>
+                        <th style="width: 30%">Ações</th>
                     </tr>
                 </thead>
                 <tbody>

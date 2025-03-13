@@ -14,10 +14,8 @@
   body {
     background-color: var(--primary-light);
     color: var(--text-dark);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
   }
-  
-  
   
   h2 {
     color: var(--primary-color);
@@ -31,8 +29,8 @@
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
-    
-
+    gap: 10px;
+    align-items: center;
   }
   
   .form-control {
@@ -47,7 +45,6 @@
     border-color: var(--primary-dark);
     color: var(--text-color);
     box-shadow: 1px 3px 5px 2px rgba(0, 0, 0, 0.048);
-
   }
   
   .btn-primary:hover {
@@ -65,14 +62,11 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 1px 3px 10px 3px rgba(0, 0, 0, 0.164);
-
   }
   
   .table thead th {
     background-color: var(--primary-dark);
     color: var(--text-color);
-    
-
   }
   
   .table tbody tr:hover {
@@ -82,7 +76,6 @@
   .pagination .page-link {
     color: var(--primary-color);
     box-shadow: 1px 3px 5px 2px rgba(0, 0, 0, 0.048);
-
   }
   
   .pagination .page-link:hover {
@@ -94,4 +87,3 @@
     background-color: var(--primary-color);
     color: var(--text-color);
   }
-  

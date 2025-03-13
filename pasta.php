@@ -2,11 +2,26 @@
 include_once "config/Database.php";
 
 $pasta_id = $_GET["id"];
+
+// Pega a pasta
 $pasta = $pdo->prepare("SELECT * FROM pastas WHERE id = ?");
 $pasta->execute([$pasta_id]);
 $pasta = $pasta->fetch();
 
-$documentos = $pdo->prepare("SELECT * FROM documentos WHERE pasta_id = ?");
+// Configuração de paginação
+$itens_por_pagina = 2; 
+$pagina_atual = $_GET['pagina'] ?? 1; 
+$inicio = ($pagina_atual - 1) * $itens_por_pagina;
+
+// Conta o total de documentos da pasta específica
+$total_documentos = $pdo->prepare("SELECT COUNT(*) FROM documentos WHERE pasta_id = ?");
+$total_documentos->execute([$pasta_id]);
+$total_documentos = $total_documentos->fetchColumn();
+
+$total_paginas = ceil($total_documentos / $itens_por_pagina);
+
+// Busca os documentos com LIMIT e OFFSET
+$documentos = $pdo->prepare("SELECT * FROM documentos WHERE pasta_id = ? LIMIT $inicio, $itens_por_pagina");
 $documentos->execute([$pasta_id]);
 $documentos = $documentos->fetchAll();
 
@@ -22,13 +37,8 @@ $documentos = $documentos->fetchAll();
 </head>
 <body class="bg-light">
     <div class="container mt-5">
-        <!-- Título da Pasta -->
         <h2 class="text-primary text-center"><?= $pasta['nome'] ?></h2>
 
-        <!-- Botão de Voltar -->
-        
-
-        <!-- Formulário para Upload de Documento -->
         <div class="form-container text-center mb-4">
         <div class="text-center mb-3">
             <a href="gerenciador.php" class="btn btn-secondary">Voltar</a>
@@ -40,7 +50,6 @@ $documentos = $documentos->fetchAll();
             </form>
         </div>
 
-        <!-- Tabela de Documentos -->
         <div class="table-container">
             <table class="table table-light table-bordered table-striped table-hover">
                 <thead>
@@ -54,15 +63,9 @@ $documentos = $documentos->fetchAll();
                     <tr>
                         <td><?= $documento['nome_arquivo'] ?></td>
                         <td class="text-center">
-                            <!-- Botões de Ação -->
                             <div>
-                                <!-- Baixar Documento -->
                                 <a href="uploads/<?= $documento['nome_arquivo'] ?>" download class="btn btn-success btn-sm ms-2">Baixar</a>
-
-                                <!-- Acessar Documento -->
                                 <a href="uploads/<?= $documento['nome_arquivo'] ?>" target="_blank" class="btn btn-primary btn-sm ms-2">Acessar</a>
-
-                                <!-- Deletar Documento -->
                                 <a href="actions/deletar_arquivo.php?id=<?= $documento['id'] ?>&pasta=<?= $pasta_id ?>" class="btn btn-danger btn-sm ms-2" onclick="return confirm('Tem certeza que deseja excluir este arquivo?')">Excluir</a>
                             </div>
                         </td>
@@ -71,6 +74,22 @@ $documentos = $documentos->fetchAll();
                 </tbody>
             </table>
         </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?= ($pagina_atual == 1) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= $pasta_id ?>&pagina=<?= $pagina_atual - 1 ?>">Anterior</a>
+                </li>
+                <?php for ($i = 1; $i <= $total_paginas; $i++): ?>
+                    <li class="page-item <?= ($pagina_atual == $i) ? 'active' : '' ?>">
+                        <a class="page-link" href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= $pasta_id ?>&pagina=<?= $i ?>"><?= $i ?></a>
+                    </li>
+                <?php endfor; ?>
+                <li class="page-item <?= ($pagina_atual == $total_paginas) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="<?= $_SERVER['PHP_SELF'] ?>?id=<?= $pasta_id ?>&pagina=<?= $pagina_atual + 1 ?>">Próximo</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

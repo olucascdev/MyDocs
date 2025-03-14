@@ -39,8 +39,13 @@ if(isset($_POST['entrar']) && !empty($_POST['user']) && !empty($_POST['senha']))
             $_SESSION['acesso'] = $linha['acesso'];
             $_SESSION['user'] = $user;
             $_SESSION['senha'] = $senha;
-            header('Location: ../home.php');
-            exit(); // Importante para interromper a execução
+
+            if ($linha['acesso'] == 4) {
+                header('Location: ../pages/admin.php');
+            } else {
+                header('Location: ../home.php');
+            }
+            exit();
         }
     } catch(PDOException $e) {
         // Exibir erro de forma mais detalhada (remova isso em produção)

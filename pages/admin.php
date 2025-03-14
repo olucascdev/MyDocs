@@ -1,8 +1,9 @@
 <?php
     include_once "../config/Database.php";
     session_start();
-    if(!isset($_SESSION['id'])) {
+    if(!isset($_SESSION['id']) || $_SESSION['acesso'] != 4) {
         header('Location: TelaLogin.php');
+        exit(); // Sempre adicione o exit após o redirecionamento
     }
 
     // Consultar a quantidade de pastas

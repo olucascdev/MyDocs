@@ -43,6 +43,12 @@
                         <i class="bi bi-newspaper"> </i> Gerenciador
                     </a>
                 </div>
+
+                <div class="mb-3">
+                    <a class="parameter-item" target="frame" href="#">
+                        <i class="bi bi-file-earmark-richtext-fill"></i>Conversor
+                    </a>
+                </div>
                 
                 <div class="mb-3">
                     <a class="parameter-item" href="TelaUsers.php" target="frame">
@@ -55,6 +61,14 @@
                         <i class="bi bi-building"></i> Unidades
                     </a>
                 </div>
+
+
+                <div class="mb-3">
+                    <a class="parameter-item" target="frame" href="#">
+                        <i class="bi bi-person-lines-fill"></i>Perfil
+                    </a>
+                </div>
+                
             </nav>
             
             <div class="mt-auto">
@@ -72,8 +86,8 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <i class="bi bi-folder-fill"></i>
-                                <h5>Minhas Pastas</h5>
+                                <i class="bi bi-gear-fill"></i>
+                                <h5>Logs</h5>
                                 <p class="card-text">0</p>
                             </div>
                         </div>
@@ -82,12 +96,33 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <i class="bi bi-file-earmark-text"></i>
+                                <i class="bi bi-person-fill"></i>
+                                <h5>Total de Usuários</h5>
+                                <p class="card-text">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-bank2"></i>
+                                <h5>Total de Unidades</h5>
+                                <p class="card-text">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                 <h5>Total de Documentos</h5>
                                 <p class="card-text">0</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 
                 <!-- Área do iFrame -->

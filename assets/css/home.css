@@ -34,7 +34,7 @@ body {
   flex-direction: column;
 }
 
-.mt-auto a {
+.mt-auto a, .parameter-item, a {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -45,32 +45,19 @@ body {
   border-radius: 8px;
   transition: all 0.3s ease;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.mt-auto a:hover {
+.mt-auto a:hover, .parameter-item:hover, a:hover {
   background-color: var(--primary-color);
   color: var(--text-color);
   transform: scale(1.05);
 }
 
-.mt-auto i {
-  font-size: 1.2rem;
-}
-
-.parameter-item {
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  color: var(--text-color);
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  margin-bottom: 10px;
-}
-
-.parameter-item:hover, .parameter-item.active {
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
+.mt-auto i, i {
+  font-size: 1.5rem;
+  color: var(--primary-light);
+  margin-right: 8px;
 }
 
 .main-content {
@@ -90,11 +77,6 @@ body {
 
 .card:hover {
   transform: translateY(-5px);
-}
-
-.card-body i {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
 }
 
 iframe {

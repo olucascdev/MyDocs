@@ -42,13 +42,26 @@
                         <i class="bi bi-newspaper"> </i> Gerenciador
                     </a>
                 </div>
+
+                <div class="mb-3">
+                    <a class="parameter-item" target="frame" href="#">
+                        <i class="bi bi-file-earmark-richtext-fill"></i>Conversor
+                    </a>
+                </div>
+
+                <div class="mb-3">
+                    <a class="parameter-item" target="frame" href="#">
+                        <i class="bi bi-person-lines-fill"></i>Perfil
+                    </a>
+                </div>
                 
-            
+            </nav>
             <div class="mt-auto">
                 <a href="controllers/LogoutController.php">
                     <i class="bi bi-box-arrow-right"></i> Logout
                 </a>
             </div>
+
         </div>
         
         <!-- Conteúdo Principal -->
@@ -69,7 +82,7 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <i class="bi bi-file-earmark-text"></i>
+                                <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                 <h5>Total de Documentos</h5>
                                 <p class="card-text">0</p>
                             </div>

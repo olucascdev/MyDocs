@@ -54,6 +54,8 @@
                         <i class="bi bi-person-lines-fill"></i>Perfil
                     </a>
                 </div>
+
+                
                 
             </nav>
             <div class="mt-auto">

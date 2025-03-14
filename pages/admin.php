@@ -68,6 +68,12 @@
                         <i class="bi bi-person-lines-fill"></i>Perfil
                     </a>
                 </div>
+
+                <div class="mb-3">
+                    <a class="parameter-item" target="frame" href="#">
+                    <i class="bi bi-gear-fill"></i>Logs
+                    </a>
+                </div>
                 
             </nav>
             

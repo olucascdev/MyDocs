@@ -42,13 +42,13 @@
                         <i class="bi bi-newspaper"> </i> Gerenciador
                     </a>
                 </div>
-
+                <!-- Perguntar se vale a pena essa feature
                 <div class="mb-3">
-                    <a class="parameter-item" target="frame" href="#">
+                    <a class="parameter-item" target="frame" href="pages/conversor.php">
                         <i class="bi bi-file-earmark-richtext-fill"></i>Conversor
                     </a>
                 </div>
-
+                 -->
                 <div class="mb-3">
                     <a class="parameter-item" target="frame" href="#">
                         <i class="bi bi-person-lines-fill"></i>Perfil

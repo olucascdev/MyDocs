@@ -1,0 +1,62 @@
+:root {
+  --primary-color: #1a73e8;
+  --primary-dark: #0d47a1;
+  --primary-light: #e8f0fe;
+  --text-color: #ffffff;
+  --text-dark: #202124;
+  --sidebar-bg: #0d47a1;
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: #1a73e8;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color: #e0e0e0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-light);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 600px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-dark);
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color);
+}
+
+.file-info {
+  background-color: var(--input-bg);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: left;
+  color: var(--text-dark);
+}
+
+select.form-select {
+  background-color: var(--input-bg);
+  color: var(--text-dark);
+}

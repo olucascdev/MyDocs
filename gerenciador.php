@@ -1,20 +1,38 @@
 <?php
+session_start();
 include_once "config/Database.php";
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION['id'])) {
+    // Se o usuário não estiver logado, redireciona para a página de login
+    header('Location: /pages/TelaLogin.php');
+    exit();
+}
+
+// Recupera o ID do usuário logado
+$usuario_id = $_SESSION['id'];
 
 // Configuração de paginação
 $itens_por_pagina = 2; // Definindo quantos itens por página
 $pagina_atual = $_GET['pagina'] ?? 1; // Se não tiver o parâmetro de página, define como 1
 
-// Consultando o total de pastas
-$total_pastas = $pdo->query("SELECT COUNT(*) FROM pastas")->fetchColumn(); 
+// Consultando o total de pastas do usuário logado
+$total_pastas = $pdo->prepare("SELECT COUNT(*) FROM pastas WHERE usuario_id = :usuario_id");
+$total_pastas->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+$total_pastas->execute();
+$total_pastas = $total_pastas->fetchColumn();
+
 $total_paginas = ceil($total_pastas / $itens_por_pagina); // Calculando o total de páginas
 $inicio = ($pagina_atual - 1) * $itens_por_pagina; // Calculando o índice de início
 
-// Selecionando as pastas para a página atual
-$pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC LIMIT $inicio, $itens_por_pagina")->fetchAll();
+// Selecionando as pastas do usuário logado para a página atual
+$pastas = $pdo->prepare("SELECT * FROM pastas WHERE usuario_id = :usuario_id ORDER BY criado_em DESC LIMIT :inicio, :itens_por_pagina");
+$pastas->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+$pastas->bindParam(':inicio', $inicio, PDO::PARAM_INT);
+$pastas->bindParam(':itens_por_pagina', $itens_por_pagina, PDO::PARAM_INT);
+$pastas->execute();
+$pastas = $pastas->fetchAll();
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -56,7 +74,6 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC LIMIT $inici
                             <a href="pages/visualizar_qrcode.php?id=<?= $pasta['id'] ?>" class="btn btn-info btn-sm">Ver QR Code</a>
                             <a href="actions/editar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-warning btn-sm me-2">Editar</a>
                             <a href="actions/deletar_pasta.php?id=<?= $pasta['id'] ?>" class="btn btn-danger btn-sm me-2" onclick="return confirm('Excluir pasta?')">Excluir</a>
-                            
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -79,8 +96,6 @@ $pastas = $pdo->query("SELECT * FROM pastas ORDER BY criado_em DESC LIMIT $inici
             </ul>
         </nav>
     </div>
-    
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

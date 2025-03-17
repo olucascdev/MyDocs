@@ -4,7 +4,7 @@
     // Agora $pdo está disponível
 
     // Configuração de paginação
-    $itens_por_pagina = 5;
+    $itens_por_pagina = 4;
     $pagina_atual = $_GET['pagina'] ?? 1;
 
     try {
@@ -79,9 +79,9 @@
                     <thead>
                         <tr>
                             <th style="width: 5%">Código</th>
-                            <th style="width: 30%">Nome do usuário</th>
+                            <th style="width: 20%">Nome do usuário</th>
                             <th style="width: 15%">Acesso</th>
-                            <th style="width: 30%">E-mail</th>
+                            <th style="width: 20%">E-mail</th>
                             <th style="width: 10%">Status</th>
                             <th style="width: 15%">Ações</th>
                         </tr>

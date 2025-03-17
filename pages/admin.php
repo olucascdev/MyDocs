@@ -14,6 +14,15 @@
 
     // Obtendo o total de pastas
     $total_pastas = $result['total_pastas'];
+
+     // Consultar a quantidade de documentos
+     $sql_documentos = "SELECT COUNT(*) AS total_documentos FROM documentos"; // Ajuste o nome da tabela e coluna conforme seu banco
+     $stmt_documentos = $pdo->prepare($sql_documentos);
+     $stmt_documentos->execute();
+     $result_documentos = $stmt_documentos->fetch(PDO::FETCH_ASSOC);
+ 
+     // Obtendo o total de documentos
+     $total_documentos = $result_documentos['total_documentos'];
 ?>
 
 <!DOCTYPE html>

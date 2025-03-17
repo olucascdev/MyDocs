@@ -3,16 +3,32 @@
     session_start();
     if(!isset($_SESSION['id'])) {
         header('Location: pages/TelaLogin.php');
+        exit(); // Certifique-se de parar a execução aqui se o usuário não estiver logado
     }
 
-    // Consultar a quantidade de pastas
-    $sql = "SELECT COUNT(*) AS total_pastas FROM pastas";
+    // Obter o ID do usuário logado
+    $usuario_id = $_SESSION['id'];
+
+    // Consultar a quantidade de pastas do usuário
+    $sql = "SELECT COUNT(*) AS total_pastas FROM pastas WHERE usuario_id = :usuario_id";
     $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT); // Vinculando o ID do usuário
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Obtendo o total de pastas
     $total_pastas = $result['total_pastas'];
+
+    // Consultar a quantidade de documentos do usuário
+    $sql_documentos = "SELECT COUNT(*) AS total_documentos FROM documentos WHERE usuario_id = :usuario_id"; // Ajuste o nome da tabela e coluna conforme seu banco
+    $stmt_documentos = $pdo->prepare($sql_documentos);
+    $stmt_documentos->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT); // Vinculando o ID do usuário
+    $stmt_documentos->execute();
+    $result_documentos = $stmt_documentos->fetch(PDO::FETCH_ASSOC);
+ 
+    // Obtendo o total de documentos
+    $total_documentos = $result_documentos['total_documentos'];
+
 ?>
 
 <!DOCTYPE html>
@@ -48,12 +64,13 @@
                         <i class="bi bi-file-earmark-richtext-fill"></i>Conversor
                     </a>
                 </div>
-                 -->
+                
                 <div class="mb-3">
                     <a class="parameter-item" target="frame" href="#">
                         <i class="bi bi-person-lines-fill"></i>Perfil
                     </a>
                 </div>
+                 -->
 
                 
                 
@@ -76,7 +93,7 @@
                             <div class="card-body">
                                 <i class="bi bi-folder-fill"></i>
                                 <h5>Minhas Pastas</h5>
-                                <p class="card-text">0</p>
+                                <p class="card-text"><?php echo $total_pastas; ?></p>
                             </div>
                         </div>
                     </div>
@@ -86,7 +103,7 @@
                             <div class="card-body">
                                 <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                 <h5>Total de Documentos</h5>
-                                <p class="card-text">0</p>
+                                <p class="card-text"><?php echo $total_documentos; ?></p>
                             </div>
                         </div>
                     </div>

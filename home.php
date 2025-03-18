@@ -48,8 +48,8 @@
     <div class="fixed">
         <!-- Sidebar -->
         <div class="sidebar d-flex flex-column p-3">
-            <div class="logo text-center mb-4">
-                <h3>MyDocs</h3>
+            <div class="logo">
+                <img src="assets/img/MyDocs.svg" alt="MyDocs Logo">
             </div>
             
             <nav>

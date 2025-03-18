@@ -19,10 +19,12 @@
     <div class="background-wave"></div>
     
     <div class="container">
+    
         <div class="login-container">
+           
             <div class="login-header">
                 <div class="logo-container">
-                    <i class="fas fa-file-alt logo-icon"></i>
+                    <img src="../assets/img/icon.svg" alt="MyDocs icon">
                 </div>
                 <h1 class="app-title">MyDocs</h1>
                 <p class="app-subtitle">Acesse seus documentos</p>

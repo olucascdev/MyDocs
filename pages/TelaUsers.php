@@ -75,15 +75,15 @@
         
             
                 <!-- Tabela para exibir Users cadastrados -->
-                <table class="table table-light table-bordered table-striped table-hover m-5" border="1" cellspacing = 0 cellpadding = 10>
+                <table class="table table-bordered table-striped table-hover m-5" border="1" cellspacing = 0 cellpadding = 10>
                     <thead>
                         <tr>
                             <th style="width: 5%">Código</th>
                             <th style="width: 20%">Nome do usuário</th>
-                            <th style="width: 15%">Acesso</th>
+                            <th style="width: 10%">Acesso</th>
                             <th style="width: 20%">E-mail</th>
-                            <th style="width: 10%">Status</th>
-                            <th style="width: 15%">Ações</th>
+                            <th style="width: 5%">Status</th>
+                            <th style="width: 10%">Ações</th>
                         </tr>
                     </thead>
                     <tbody>

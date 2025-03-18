@@ -1,28 +1,31 @@
 <?php
     include_once "../config/Database.php";
     session_start();
-    if(!isset($_SESSION['id']) || $_SESSION['acesso'] != 4) {
+    if (!isset($_SESSION['id']) || $_SESSION['acesso'] != 4) {
         header('Location: TelaLogin.php');
-        exit(); // Sempre adicione o exit após o redirecionamento
+        exit();
     }
 
-    // Consultar a quantidade de pastas
-    $sql = "SELECT COUNT(*) AS total_pastas FROM pastas";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Consultar a quantidade de usuários
+    $sql_usuarios = "SELECT COUNT(*) AS total_usuarios FROM usuarios";
+    $stmt_usuarios = $pdo->prepare($sql_usuarios);
+    $stmt_usuarios->execute();
+    $result_usuarios = $stmt_usuarios->fetch(PDO::FETCH_ASSOC);
+    $total_usuarios = $result_usuarios['total_usuarios'];
 
-    // Obtendo o total de pastas
-    $total_pastas = $result['total_pastas'];
+    // Consultar a quantidade de unidades 
+    $sql_unidades = "SELECT COUNT(*) AS total_unidades FROM estabelecimentos";
+    $stmt_unidades = $pdo->prepare($sql_unidades);
+    $stmt_unidades->execute();
+    $result_unidades = $stmt_unidades->fetch(PDO::FETCH_ASSOC);
+    $total_unidades = $result_unidades['total_unidades'];
 
-     // Consultar a quantidade de documentos
-     $sql_documentos = "SELECT COUNT(*) AS total_documentos FROM documentos"; // Ajuste o nome da tabela e coluna conforme seu banco
-     $stmt_documentos = $pdo->prepare($sql_documentos);
-     $stmt_documentos->execute();
-     $result_documentos = $stmt_documentos->fetch(PDO::FETCH_ASSOC);
- 
-     // Obtendo o total de documentos
-     $total_documentos = $result_documentos['total_documentos'];
+    // Consultar a quantidade de documentos
+    $sql_documentos = "SELECT COUNT(*) AS total_documentos FROM documentos";
+    $stmt_documentos = $pdo->prepare($sql_documentos);
+    $stmt_documentos->execute();
+    $result_documentos = $stmt_documentos->fetch(PDO::FETCH_ASSOC);
+    $total_documentos = $result_documentos['total_documentos'];
 ?>
 
 <!DOCTYPE html>
@@ -38,109 +41,68 @@
     <title>Admin - MyDocs</title>
 </head>
 <body>
-    <!-- Layout Principal -->
     <div class="fixed">
-        <!-- Sidebar -->
         <div class="sidebar d-flex flex-column p-3">
             <div class="logo text-center mb-4">
                 <h3>MyDocs</h3>
             </div>
-            
             <nav>
                 <div class="mb-3">
                     <a class="parameter-item" target="frame" href="../gerenciador.php">
-                        <i class="bi bi-newspaper"> </i> Gerenciador
+                        <i class="bi bi-newspaper"></i> Gerenciador
                     </a>
                 </div>
-
-                <div class="mb-3">
-                    <a class="parameter-item" target="frame" href="conversor.php">
-                        <i class="bi bi-file-earmark-richtext-fill"></i>Conversor
-                    </a>
-                </div>
-                
                 <div class="mb-3">
                     <a class="parameter-item" href="TelaUsers.php" target="frame">
                         <i class="bi bi-people-fill"></i> Usuários
                     </a>
                 </div>
-                
                 <div class="mb-3">
                     <a class="parameter-item" href="TelaUnidades.php" target="frame">
                         <i class="bi bi-building"></i> Unidades
                     </a>
                 </div>
-
-
-                <div class="mb-3">
-                    <a class="parameter-item" target="frame" href="#">
-                        <i class="bi bi-person-lines-fill"></i>Perfil
-                    </a>
-                </div>
-
-                <div class="mb-3">
-                    <a class="parameter-item" target="frame" href="#">
-                    <i class="bi bi-gear-fill"></i>Logs
-                    </a>
-                </div>
-                
             </nav>
-            
             <div class="mt-auto">
                 <a href="../controllers/LogoutController.php">
                     <i class="bi bi-box-arrow-right"></i> Logout
                 </a>
             </div>
         </div>
-        
+
         <!-- Conteúdo Principal -->
         <div class="main-content">
             <div class="container-fluid">
-                <!-- Cartões de Estatísticas -->
                 <div class="row mb-4">
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <i class="bi bi-gear-fill"></i>
-                                <h5>Logs</h5>
-                                <p class="card-text">0</p>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <i class="bi bi-person-fill"></i>
                                 <h5>Total de Usuários</h5>
-                                <p class="card-text">0</p>
+                                <p class="card-text"><?= $total_usuarios ?></p>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <i class="bi bi-bank2"></i>
                                 <h5>Total de Unidades</h5>
-                                <p class="card-text">0</p>
+                                <p class="card-text"><?= $total_unidades ?></p>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                 <h5>Total de Documentos</h5>
-                                <p class="card-text">0</p>
+                                <p class="card-text"><?= $total_documentos ?></p>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 
-                <!-- Área do iFrame -->
                 <div class="row">
                     <div class="col-12">
                         <iframe width="100%" height="547px" frameborder="0" name="frame" src="../gerenciador.php"></iframe>

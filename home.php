@@ -3,7 +3,7 @@
     session_start();
     if(!isset($_SESSION['id'])) {
         header('Location: pages/TelaLogin.php');
-        exit(); // Certifique-se de parar a execução aqui se o usuário não estiver logado
+        exit();
     }
 
     // Obter o ID do usuário logado
